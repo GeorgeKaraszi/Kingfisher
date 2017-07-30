@@ -20,7 +20,13 @@ defmodule Kingfisher.Mixfile do
   def application do
     [
       mod: {Kingfisher.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [
+        :logger,
+        :runtime_tools,
+        :ueberauth,
+        :ueberauth_github,
+        :ueberauth_facebook
+      ]
     ]
   end
 
@@ -41,6 +47,10 @@ defmodule Kingfisher.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+      {:ueberauth, "~> 0.4"},
+      {:ueberauth_github, "~> 0.4"},
+      {:ueberauth_facebook, "~> 0.6"},
+      {:envy, "~> 1.1.1", only: [:dev, :test]},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
     ]
   end
