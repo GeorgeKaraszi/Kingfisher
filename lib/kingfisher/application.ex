@@ -1,9 +1,17 @@
 defmodule Kingfisher.Application do
   use Application
 
+  alias Mix.Config
+
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   def start(_type, _args) do
+    unless Mix.env == :prod do
+      Envy.auto_load
+      # Re-run config for the DOT env files to load envirmental variables
+      "config/config.exs" |> Config.read! |> Config.persist
+    end
+
     import Supervisor.Spec
 
     # Define workers and child supervisors to be supervised

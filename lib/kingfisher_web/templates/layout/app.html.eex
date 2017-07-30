@@ -9,6 +9,25 @@
 
     <title>Hello Kingfisher!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <%# <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1905137919810839',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script> %>
   </head>
 
   <body>
@@ -26,6 +45,8 @@
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
+        <%= link("Login With Facebook", to: auth_path(@conn, :request, "facebook")) %> <br>
+        <%= link("Login With Githubs", to: auth_path(@conn, :request, "github")) %> <br>
         <%= render @view_module, @view_template, assigns %>
       </main>
 
