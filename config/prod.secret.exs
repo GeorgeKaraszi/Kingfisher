@@ -9,7 +9,7 @@ use Mix.Config
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or yourself later on).
 config :kingfisher, KingfisherWeb.Endpoint,
-  secret_key_base: System.get_env("APPLICATION_SECRET_BASE") #"Dfu4NTFdfylJvLcuq2q/j8m05Tr0J8qYzym8k0F3Z/uB2zczLI4UZ3lzAuq4cB4i"
+  secret_key_base: System.get_env("APPLICATION_SECRET_BASE")
 
 # Configure your database
 config :kingfisher, Kingfisher.Repo,
